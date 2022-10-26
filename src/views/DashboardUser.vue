@@ -8,7 +8,7 @@
     <input v-model="cihazBilgileri.dname" type="text" placeholder="IO NAME" class="mb-0" />
     IO VALUE: 
     <input v-model="cihazBilgileri.diginp" type="text" placeholder="IO VALUE" class="mb-0" />
-    <button  @click="emir" color="primary" class="px-4">PUSH ORDER</button>
+    <button  @click="emir2" color="primary" class="px-4">PUSH ORDER</button>
   </div>
   <CRow>
   
@@ -149,6 +149,14 @@
           .catch(e => console.log(e));
           
        },
+       emir2(){
+      axios.post('http://localhost:3003/ioset',{UID:this.cihazBilgileri.uid, SLAVEID:this.cihazBilgileri.slaid, 
+          messageId:this.cihazBilgileri.mid ,DNAME:this.cihazBilgileri.dname,
+        DID:this.cihazBilgileri.diginp,date:this.cihazBilgileri.date})
+        .then(response => {
+          
+        }).catch(e => console.log(e));
+     },
        refreshIOSData(){
           this.$appAxios
         .get(`/iOScript`) 
