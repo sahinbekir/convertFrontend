@@ -152,6 +152,7 @@ export default {
         
      },
      emir2(){
+     this.cihazBilgileri.date=new Date()
       axios.post('http://localhost:3003/ioset',{UID:this.cihazBilgileri.uid, SLAVEID:this.cihazBilgileri.slaid, 
           messageId:this.cihazBilgileri.mid ,DNAME:this.cihazBilgileri.dname,
         DID:this.cihazBilgileri.diginp,date:this.cihazBilgileri.date})
